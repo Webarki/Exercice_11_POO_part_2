@@ -5,7 +5,9 @@
 {% endblock %} 
 {% block body %}
 <hr/>
+{% if session.role == "admin" %}
 {% if article %}
+<!-- FORMULAIRE DE MODIFICATION -->
 <h3 class="mb-3">Page Article  # {{ article.id }}</h3>
 <div class="card text-center">
   <div class="card-body">
@@ -50,7 +52,8 @@
   </div>
 </div>
 {% else %}
-<h3 class="mb-3">Créer l'article {{ count.id + 1 }}</h3>
+<!-- FORMULAIRE DE CREATION -->
+<h3 class="mb-3">Créer l'article N°{{ count.id + 1 }}</h3>
 <div class="card text-center">
   <div class="card-body">
 <form method="post" enctype="multipart/form-data">
@@ -90,6 +93,11 @@
 </form>
   </div>
 </div>
+{% endif %}
+{% else  %}
+<script>
+document.location.href = "/";
+</script>
 {% endif %}
 <hr/>
 {% endblock %}

@@ -11,8 +11,8 @@ class HomeController extends TwigController
 
     public function index()
     {
-        $article = new Article();
-        $articles = $article->getArticleListStateTrue();
+        $getArticles = new Article();
+        $articles = $getArticles->getArticleListStateTrue();
         echo $this->twig->render('home/index.html.twig', [
             'data' => '',
             'session' => $_SESSION,

@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="../../dist/assets/css/style.css">
 {% endblock %} 
 {% block body %}
+{% if session %}
 {% if articles %} 
 <hr/>
 <h3>Page Articles</h3>
@@ -97,5 +98,10 @@ Supprimer
 <h3 class="mt-5">Page Article</h3>
     <a href="/public/article/create" class="btn btn-primary mb-3">Créer un article</a>   
 <p class="text-danger h3 mt-5">Aucun article n'existe ...</p>
+{% endif %}
+{% else %}
+<script>
+document.location.href = "/";
+</script>
 {% endif %}
 {% endblock %}
